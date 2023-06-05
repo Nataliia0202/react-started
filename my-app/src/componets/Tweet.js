@@ -1,11 +1,14 @@
 import React from "react";
 
-export const Tweet = ({ name, message }) => {
+export const Tweet = ({ name, tweet, tweets, setTweets }) => {
+  const deleteTweet = () => {
+    setTweets(tweets.filter(state => state.id !== tweet.id));
+  }
   return (
     <>
       <h2>{name}</h2>
-      <h3>{message}</h3>
-      <button>Delet</button>
+      <h3>{tweet.message}</h3>
+      <button onClick={deleteTweet}>Delet</button>
       <button>Like</button>
     </>
   );
